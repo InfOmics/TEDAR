@@ -37,8 +37,8 @@ We used the ADReCS and PROTECT datasets contained verified drug-adr relations fo
 
 The srs folder contains all code used:
 
-* **Split.ipynb**: 
-* **Compute.ipynb**: 
+* **TEDAR.ipynb**: 
+* **Compute_disproportionality.ipynb**: 
 * **Validate.R**: 
   
   
