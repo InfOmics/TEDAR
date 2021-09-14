@@ -37,9 +37,9 @@ We used the ADReCS and PROTECT datasets contained verified drug-adr relations fo
 
 The srs folder contains all code used:
 
-* **Split.ipynb**: generate the table containing the associatoin between each gene a its SNPs
-* **Compute.ipynb**: Generalized allele specturm and Pvalues calculation on ADNI cohort
-* **Validate.R**: Generalized allele specturm and Pvalues calculation on PPMI cohort
+* **Split.ipynb**: 
+* **Compute.ipynb**: 
+* **Validate.R**: 
   
   
 
