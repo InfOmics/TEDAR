@@ -7,3 +7,4 @@ Then, a graph theory-based algorithm is applied for retrieving a final set of no
 The proposed approach detects a greater number of true signals, w.r.t. state-of-art fixed length approaches, without significantly increasing the number of false positives.
 TEDAR also detects adverse reactions more promptly, months before the other methodologies. Moreover, the approach is not dependent on a user-specified parameter, that is the length of the intervals.
 
+![Image](doc/method_illustration.png)
