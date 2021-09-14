@@ -33,3 +33,19 @@ Data extraction from RNF was carried out through the Vigisegn data warehouse. Th
 
 We used the ADReCS and PROTECT datasets contained verified drug-adr relations for assessing the performances of TEDAR.
 
+## Contents
+
+The srs folder contains all code used:
+
+* **Split.ipynb**: generate the table containing the associatoin between each gene a its SNPs
+* **Compute.ipynb**: Generalized allele specturm and Pvalues calculation on ADNI cohort
+* **Validate.R**: Generalized allele specturm and Pvalues calculation on PPMI cohort
+  
+  
+
+## Authors and acknowledgment
+
+Antonino Aparo(antonino.aparo@univr.it), Pietro Sala (pietro.sala@univr.it) and Vincenzo Bonnici (vincenzo.bonnici@univr.it) created the workflow. 
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
