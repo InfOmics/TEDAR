@@ -33,9 +33,9 @@ We used the ADReCS and PROTECT datasets contained verified drug-adr relations fo
 
   
 
-## Authors and acknowledgment
+## Citation
 
-Antonino Aparo(antonino.aparo@univr.it), Pietro Sala (pietro.sala@univr.it) and Vincenzo Bonnici (vincenzo.bonnici@univr.it) created the workflow. 
-
+Submitted.
+  
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
