@@ -15,7 +15,7 @@ The above image represents the generation of a DAG of intervals for extracting n
 
 TEDAR is released in a Docker container, that allows to isolate app from its environment, increasing replicability. All dependencies are automatically installed when the container is created.
 The TEDAR software is developed using Ruby inside jupyter notebook.  Reports are collected, stored and manipulated using Redis as database management system.
-For the application of signal detection thresholds and the validation phase of drug-adrs detectect was used R.
+For the application of signal detection thresholds and the validation phase of drug-adrs detectect is used R.
 
 
 ### Data sources
@@ -34,8 +34,30 @@ Input data and reference dataset provided in this repository are encoded.
 
 #### Input Data
 
+The complete set of report must be provided as text file.
+One report per line containing date of insertion, drug and adr separated by tabs.
 
-
+A valid file is given by the following example listing 5 drug-adr reports:
+```
+vt	drug	soc
+2017-01-02	drug169	Gastrointestinal disorders
+2017-01-02	drug169	Vascular disorders
+2017-01-02	drug169	Musculoskeletal and connective tissue disorders
+2017-01-02	drug169	Blood and lymphatic system disorders
+2017-01-11	drug170	Blood and lymphatic system disorders
+2017-01-18	drug171	General disorders and administration site conditions
+2017-01-20	drug172	Investigations
+2017-01-20	drug172	Blood and lymphatic system disorders
+2017-01-20	drug172	Hepatobiliary disorders
+2017-01-23	drug32	General disorders and administration site conditions
+2017-01-23	drug130	Skin and subcutaneous tissue disorders
+2017-01-23	drug130	Gastrointestinal disorders
+2017-01-23	drug130	Vascular disorders
+2017-01-23	drug130	Gastrointestinal disorders
+2017-01-23	drug130	Nervous system disorders
+2017-01-23	drug158	General disorders and administration site conditions
+2017-02-06	drug173	Skin and subcutaneous tissue disorders
+```
 
 
 ## Usage
