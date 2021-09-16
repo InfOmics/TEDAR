@@ -30,7 +30,7 @@ Data extraction from RNF was carried out through the Vigisegn data warehouse.
 
 We used the ADReCS and PROTECT datasets containing verified drug-adr relations for assessing the performances of TEDAR. The reference dataset used is obtained by merging these two datasets. Furthermore we selected only the drug-ard pairs for which a minimum number of reports equal to 5 is reported in RNF. The excluded pairs did not have enough support in the RNF dataset to be detected as signals.
 
-Input data and reference dataset provided in this repository contain drugs encoded as: <i>drug1, drug2, ... drug3042 </i>.
+Input data and reference dataset provided in this repository are an anonimyzed version of RNF, thus contain drugs encoded as: <i>drug1, drug2, ... drug3042 </i>.
 
 Reference dataset `reference_dataset.txt` is contained in the `DockerContainer/TEDAR` directory.
   
@@ -65,7 +65,8 @@ vt	drug	soc
 The input file must be specified in `Init.ipynb` (`INPUTDATA` constant). It is necessary to modify `START_MONTH` and `END_MONTH` in `TEDAR.ipynb` and `Compute_disprortionality.pynb` source code according to the timespan to be analyzed, i.e. timespan from 2008-1-1 to 2017-12-1 required `START_MONTH=[2008,1]` and `END_MONTH=[2017,12]` (<i>[year, month]</i>).
 
 
-In the `DockerContainer/TEDAR/sciruby/` folder there are two encoded versions of the input data:
+In the `DockerContainer/TEDAR/sciruby/` folder there are two encoded versions of the input data (the requested time to import the first input file to Redis is about 1 hour, for the second one is about 7 hours - times refers to a laptop with XXXXX)  
+
 
 * `input_data_1y.txt`: encoded reports in collected in RNF in 2017;
 * `input_data_10.rar`: encoded reports in collected in RNF in [2008,2017] (extract the .rar file);
@@ -75,6 +76,7 @@ The TEDAR version provided in this repository uses `input_data_1y.txt` as defaul
 ## Usage
 
 Docker is required.
+The user has also to ensure that Docker is currently installed and there are no too strict limits on the number of CPUs and amount of memory that Docker can use (https://docs.docker.com/config/containers/resource_constraints/ for further details).
 Download and extract the repository, then move to `DockerContainer/TEDAR/` and run from terminal:
 ```
 docker-compose up    
@@ -119,7 +121,7 @@ This file computes PRR and metrics applied according the thresholds (Confidence 
 
 Set `START_MONTH` and `END_MONTH` to specify the timespan to be analyzed,  i.e. timespan from 2008-1-1 to 2017-12-1 required `START_MONTH=[2008,1]` and `END_MONTH=[2017,12]` (<i>[year, month]</i>).
   
-The computation of the 4 methodologies tested in this project is allowed: <i>TEDAR</i> (variable length intervals), <i>PRR monthly</i> (1 month length intervals), <i>PRR quarterly</i> (3 months length intervals), <i>PRR yearly</i> (annual length intervals). 
+There are 4 methodologies that can be runned varying the time unit: <i>TEDAR</i> (variable length intervals), <i>PRR monthly</i> (1 month length intervals), <i>PRR quarterly</i> (3 months length intervals), <i>PRR yearly</i> (annual length intervals). 
   
 TEDAR analysis requires the generation of `split_TEDAR.txt` as described in [TEDAR.ipynb](#tedaripynb).
   
