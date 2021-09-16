@@ -13,7 +13,8 @@ The above image represents the generation of a DAG of intervals for extracting n
 
 ## Software architecture
 
-The TEDAR software was developed using Ruby inside jupyter notebook.  Reports are collected, stored and manipulated using Redis as database management system.
+TEDAR is released in a Docker container, that allows to isolate app from its environment, increasing replicability. All dependencies are automatically installed when the container is created.
+The TEDAR software is developed using Ruby inside jupyter notebook.  Reports are collected, stored and manipulated using Redis as database management system.
 For the application of signal detection thresholds and the validation phase of drug-adrs detectect was used R.
 
 
@@ -25,9 +26,17 @@ ADRs are encoded according to the MedDRA (Medical Dictionary for Regulatory Acti
 
 Drug is defined as pharmaceutical product (combinations of active ingredients) according to the requirements of the ICH M5 standard adopted in RNF. We make no distinction between pharmaceutical products with the same combinations of active ingredients.
 
-Data extraction from RNF was carried out through the Vigisegn data warehouse. Thanks to the ease of access to the registers and the ability to download the entire database, it was possible to retrieve the information necessary for the TEDAR analysis: <b> <report id, entry date, drugs (pharmaceutical products),  ADRs (SOC)></b>.
+Data extraction from RNF was carried out through the Vigisegn data warehouse. Thanks to the ease of access to the registers and the ability to download the entire database, it was possible to retrieve the information necessary for the TEDAR analysis: <b> entry date, drug,  ADR></b>.
 
-We used the ADReCS and PROTECT datasets contained verified drug-adr relations for assessing the performances of TEDAR.
+We used the ADReCS and PROTECT datasets contained verified drug-adr relations for assessing the performances of TEDAR. The reference dataset used is obtained by merging these two datasets. Furthermore we selected only the drug-ard pairs for which a minimum number of reports equal to 5 is reported in RNF. The excluded pairs did not have enough support in the RNF dataset to be detected as signals.
+
+Input data and reference dataset provided in this repository are encoded.
+
+#### Input Data
+
+
+
+
 
 ## Usage
 
