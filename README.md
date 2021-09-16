@@ -13,7 +13,7 @@ The above image represents the generation of a DAG of intervals for extracting n
 
 ## Software architecture
 
-TEDAR is released in a Docker container, that allows to isolate app from its environment, increasing replicability. All dependencies are automatically installed when the container is created.
+TEDAR is released in a Docker container, that allows to isolate app from its environment, increasing replicability. All dependencies are automatically installed when the container is created (see `TEDAR/DockerContainer/TEDAR/Dockerfile`).
 The TEDAR software is developed using Ruby inside Jupyter Notebook.  Reports are collected, stored and manipulated using Redis as database management system.
 For the application of signal detection thresholds and the validation phase of drug-adrs detectect is used R.
 
@@ -131,7 +131,7 @@ Output file is a tab separated text file containing a line for each intervals of
 Drug Adr Start_month End_month Prr LowerBoundConfidenceInterval UpperBoundConfidenceInterval Chi-squared NumberOfReportInIntervals
 ```
   
-An example of output file is showed in the following lines listing results for pairs <i>"drug166-Product issues"</i> and <i>"drug289-Gastrointestinal disorders"</i> in timespan <i>[2017-1-1,2017-12-31]</i>:
+An example of output file is showed in the following lines listing results for pairs <i>"drug166-Product issues"</i> and <i>"drug289-Gastrointestinal disorders"</i> using TEDAR (variable lenght intervals) in timespan <i>[2017-1-1,2017-12-31]</i>:
 ```
 drug166	Product issues	[2017, 1]	[2017, 3]	13.567421790722761	5.702329665607122	32.28065454679049	51.50491267314168	5
 drug166	Product issues	[2017, 4]	[2017, 6]	0.0	0.0	NaN	0.19328512034182097	0
