@@ -127,7 +127,12 @@ TEDAR analysis requires the generation of `split_TEDAR.txt` as described in [TED
   
 For each methodologies a files in `results` directory reports the metrics obtained (`DockerContainer/TEDAR/sciruby/results/TEDAR/result_TEDAR.txt`, `DockerContainer/TEDAR/sciruby/results/TEDAR/result_prr_monthly.txt`, `DockerContainer/TEDAR/sciruby/results/TEDAR/result_prr_quarterly.txt`, `DockerContainer/TEDAR/sciruby/results/TEDAR/result_prr_yearly.txt`).  
  
-Output file is a tab separated text file containing  <b> <entry date, drug,  ADR></b> and <b> <Drug Adr Start_month End_month Prr LowerBoundConfidenceInterval UpperBoundConfidenceInterval Chi-squared NumberOfReportInIntervals> </b>. An example of output file is showed in the following lines:
+Output file is a tab separated text file containing:
+```
+Drug Adr Start_month End_month Prr LowerBoundConfidenceInterval UpperBoundConfidenceInterval Chi-squared NumberOfReportInIntervals
+```
+  
+An example of output file is showed in the following lines listing results for pairs <i>"drug166-Product"</i> issues <i>"drug289-Gastrointestinal disorders"</i> in timespan <i>[2017-1-1,2017-12-31]</i>:
 ```
 drug166	Product issues	[2017, 1]	[2017, 3]	13.567421790722761	5.702329665607122	32.28065454679049	51.50491267314168	5
 drug166	Product issues	[2017, 4]	[2017, 6]	0.0	0.0	NaN	0.19328512034182097	0
