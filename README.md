@@ -93,7 +93,7 @@ The 3 <i>ipynb</i> files can be easly run in Jupyter Notebook via graphical inte
   
 #### Init.ipynb
   
-Upload input data (as specified in 	[Markdown - Link](#https://github.com/InfOmics/TEDAR#software-architecture) )
+Upload input data (as specified in 	[USAGE](#https://github.com/InfOmics/TEDAR#software-architecture) )
   
 
 ## Citation
