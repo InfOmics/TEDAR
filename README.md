@@ -15,30 +15,30 @@ The above image represents the generation of a DAG of intervals for extracting n
 
 TEDAR is released in a Docker container, that allows to isolate applications from their environment, with the effect of increasing replicability. All dependencies are automatically installed when the container is created (see `TEDAR/DockerContainer/TEDAR/Dockerfile`).
 The TEDAR software is developed using Ruby scripts in a set of Jupyter Notebooks.  Reports are stored and manipulated by using Redis as database management system.
-R scripts are developed for applying the signal detection thresholds and the validation phase of drug-adrs detectect.
+R scripts are developed for applying the signal detection thresholds and the validation phase of drug-adrs detected.
 
 
 ### Data sources
 
-We use as case study the surveillance database, named RNF (Rete Nazionale Farmacovigilanza), released by the Italian authority AIFA (Agenzia Italiana del Farmaco). The RNF database contains reports of ADRs issued by all the Italian regions.
+We use as a case study the surveillance database, named RNF (Rete Nazionale Farmacovigilanza), released by the Italian authority AIFA (Agenzia Italiana del Farmaco). The RNF database contains reports of ADRs issued by all the Italian regions.
 
-ADRs are encoded according to the MedDRA (Medical Dictionary for Regulatory Activities) terminology, which consists of large set of terms structured into five hierarchical levels. System Organ Classes (SOC) are the level terminology used in this system to encode ADRs. SOC is the highest level of ADR terminology and terms here are distinguished by anatomical or physiological system, etiology or purpose.
+ADRs are encoded according to the MedDRA (Medical Dictionary for Regulatory Activities) terminology, which consists of a large set of terms structured into five hierarchical levels. System Organ Classes (SOC) are the level terminology used in this system to encode ADRs. SOC is the highest level of ADR terminology and terms here are distinguished by anatomical or physiological system, etiology or purpose.
 
-Drug is defined as pharmaceutical product (combinations of active ingredients) according to the requirements of the ICH M5 standard adopted in RNF. We make no distinction between pharmaceutical products with the same combinations of active ingredients.
+Drug is defined as a pharmaceutical product (combinations of active ingredients) according to the requirements of the ICH M5 standard adopted in RNF. We make no distinction between pharmaceutical products with the same combinations of active ingredients.
 
 Data extraction from RNF was carried out through the Vigisegn data warehouse.
 
-We used the ADReCS and PROTECT datasets contained verified drug-adr relations for assessing the performances of TEDAR. The reference dataset used is obtained by merging these two datasets. Furthermore we selected only the drug-ard pairs for which a minimum number of reports equal to 5 is reported in RNF. The excluded pairs did not have enough support in the RNF dataset to be detected as signals.
+We used the ADReCS and PROTECT datasets containing verified drug-adr relations for assessing the performances of TEDAR. The reference dataset used is obtained by merging these two datasets. Furthermore we selected only the drug-ard pairs for which a minimum number of reports equal to 5 is reported in RNF. The excluded pairs did not have enough support in the RNF dataset to be detected as signals.
 
 Input data and reference dataset provided in this repository contain drugs encoded as: <i>drug1, drug2, ... drug3042 </i>.
 
-Reference dataset `reference_dataset.txt` is contained in `DockerContainer/TEDAR` directory.
+Reference dataset `reference_dataset.txt` is contained in the `DockerContainer/TEDAR` directory.
   
 
 #### Input Data
 
-The complete set of reports must be provided as text file.
-the file contains one report per line represented as a date of insertion, a drug and an adr. Fields in a record are separated by tabs.
+The complete set of reports must be provided as a text file.
+The file contains one report per line represented as a date of insertion, a drug and an adr. Fields in a record are separated by tabs.
 
 A valid file is given by the following example:
 ```
@@ -65,12 +65,12 @@ vt	drug	soc
 The input file must be specified in `Init.ipynb` (`INPUTDATA` constant). It is necessary to modify `START_MONTH` and `END_MONTH` in `TEDAR.ipynb` and `Compute_disprortionality.pynb` source code according to the timespan to be analyzed, i.e. timespan from 2008-1-1 to 2017-12-1 required `START_MONTH=[2008,1]` and `END_MONTH=[2017,12]` (<i>[year, month]</i>).
 
 
-In the `DockerContainer/TEDAR/sciruby/` folder there are two encoded versions of our input data:
+In the `DockerContainer/TEDAR/sciruby/` folder there are two encoded versions of the input data:
 
 * `input_data_1y.txt`: encoded reports in collected in RNF in 2017;
 * `input_data_10.rar`: encoded reports in collected in RNF in [2008,2017] (extract the .rar file);
 
-The TEDAR version provided in this repository use `input_data_1y.txt` as default input. To use `input_data_10y.txt` see comments in `Init.ipynb` (`INPUTDATA` constant), `TEDAR.ipynb` (`START_MONTH` and `END_MONTH` constant), and `Compute_disprortionality.ipynb` (`START_MONTH` and `END_MONTH` constant). 
+The TEDAR version provided in this repository uses `input_data_1y.txt` as default input. To use `input_data_10y.txt` see comments in `Init.ipynb` (`INPUTDATA` constant), `TEDAR.ipynb` (`START_MONTH` and `END_MONTH` constant), and `Compute_disprortionality.ipynb` (`START_MONTH` and `END_MONTH` constant). 
 
 ## Usage
 
@@ -100,7 +100,7 @@ Input data must be provided as specified in [Input Data](#input-data). Set `INPU
 #### TEDAR.ipynb
 This file is the core file of TEDAR methodology. 
   
-Given the input data already uploaded in Redis database, homogenous intervals are obtained and writen to the file `DockerContainer/TEDAR/sciruby/results/TEDAR/split/split_TEDAR.txt`.
+Given the input data already uploaded in Redis database, homogenous intervals are obtained and written to the file `DockerContainer/TEDAR/sciruby/results/TEDAR/split/split_TEDAR.txt`.
 
  
 `split_TEDAR.txt` is a tab separated text file that contains the homogenous intervals for each drug-adr pair in a line.
@@ -115,7 +115,7 @@ Set `START_MONTH` and `END_MONTH` to specify the timespan to be analyzed,  i.e. 
 
 ---- 
 #### Compute_disproportionality.ipynb
-This file omputes PRR and metrics applied in thresholds (Confidence Interval and Chi-squared statistics).
+This file computes PRR and metrics applied according the thresholds (Confidence Interval and Chi-squared statistics).
 
 Set `START_MONTH` and `END_MONTH` to specify the timespan to be analyzed,  i.e. timespan from 2008-1-1 to 2017-12-1 required `START_MONTH=[2008,1]` and `END_MONTH=[2017,12]` (<i>[year, month]</i>).
   
@@ -125,7 +125,7 @@ TEDAR analysis requires the generation of `split_TEDAR.txt` as described in [TED
   
 For each methodology, a file in `results` directory reports the obtained metrics (`DockerContainer/TEDAR/sciruby/results/TEDAR/result_TEDAR.txt`, `DockerContainer/TEDAR/sciruby/results/TEDAR/result_prr_monthly.txt`, `DockerContainer/TEDAR/sciruby/results/TEDAR/result_prr_quarterly.txt`, `DockerContainer/TEDAR/sciruby/results/TEDAR/result_prr_yearly.txt`).  
  
-Output file is a tab separated text file containing a line for each intervals of the analysed drg-adr pairs:
+Output file is a tab separated text file containing a line for each interval of the analysed drg-adr pairs:
 ```
 Drug Adr Start_month End_month Prr LowerBoundConfidenceInterval UpperBoundConfidenceInterval Chi-squared NumberOfReportInIntervals
 ```
