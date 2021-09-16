@@ -84,7 +84,7 @@ To execute the code inside the Jupyter Notebook go to http://localhost:8888/ via
 
   
 Source code is proveded in `DockerContainer/TEDAR/sciruby/`. 
-The 3 <i>ipynb<i/> files can be easly run in Jupyter Notebook via graphical interface.  It is recommended to run the files in this order:
+The 3 <i>ipynb</i> files can be easly run in Jupyter Notebook via graphical interface.  It is recommended to run the files in this order:
 
   1. `Init.ipynb`
   2. `TEDAR.ipynb`
