@@ -26,7 +26,7 @@ ADRs are encoded according to the MedDRA (Medical Dictionary for Regulatory Acti
 
 Drug is defined as pharmaceutical product (combinations of active ingredients) according to the requirements of the ICH M5 standard adopted in RNF. We make no distinction between pharmaceutical products with the same combinations of active ingredients.
 
-Data extraction from RNF was carried out through the Vigisegn data warehouse. Thanks to the ease of access to the registers and the ability to download the entire database, it was possible to retrieve the information necessary for the TEDAR analysis: <b> entry date, drug,  ADR></b>.
+Data extraction from RNF was carried out through the Vigisegn data warehouse. Thanks to the ease of access to the registers and the ability to download the entire database, it was possible to retrieve the information necessary for the TEDAR analysis: <b> <entry date, drug,  ADR></b>.
 
 We used the ADReCS and PROTECT datasets contained verified drug-adr relations for assessing the performances of TEDAR. The reference dataset used is obtained by merging these two datasets. Furthermore we selected only the drug-ard pairs for which a minimum number of reports equal to 5 is reported in RNF. The excluded pairs did not have enough support in the RNF dataset to be detected as signals.
 
@@ -58,6 +58,9 @@ vt	drug	soc
 2017-01-23	drug158	General disorders and administration site conditions
 2017-02-06	drug173	Skin and subcutaneous tissue disorders
 ```
+
+Input file must be specified in `Init.ipynb` (`INPUTDATA` constant). According to the timespan to be analyzed, it is necessary to modify `START_MONTH` and `END_MONTH` in `TEDAR.ipynb` and `Compute_disprortionality.pynb` source code, i.e. timespan from 2008-1-1 to 2017-12-1 required `START_MONTH=[2008,1]` and `END_MONTH=[2017,12]` (<i>[year, month]</i>).
+
 
 In the `DockerContainer/TEDAR/sciruby/` folder there are two encoded versions of our input data:
 
