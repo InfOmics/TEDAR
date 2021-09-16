@@ -70,7 +70,7 @@ In the `DockerContainer/TEDAR/sciruby/` folder there are two encoded versions of
 * `input_data_1y.txt`: encoded reports in collected in RNF in 2017;
 * `input_data_10.rar`: encoded reports in collected in RNF in [2008,2017] (extract the .rar file);
 
-The TEDAR version provided in this repository use `input_data_1y.txt` as default input. To use `input_data_10y.txt` see comments in `Init.ipynb` (`INPUTDATA` constant), `TEDAR.ipynb` (`START_MONTH` and `END_MONTH` constant), `Compute_disprortionality.pynb` (`START_MONTH` and `END_MONTH` constant). 
+The TEDAR version provided in this repository use `input_data_1y.txt` as default input. To use `input_data_10y.txt` see comments in `Init.ipynb` (`INPUTDATA` constant), `TEDAR.ipynb` (`START_MONTH` and `END_MONTH` constant), `Compute_disprortionality.ipynb` (`START_MONTH` and `END_MONTH` constant). 
 
 ## Usage
 
