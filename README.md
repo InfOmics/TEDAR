@@ -113,6 +113,34 @@ drug202	Blood and lymphatic system disorders	0,7,10,13
   
 Set `START_MONTH` and `END_MONTH` to specify the timespan to be analyzed,  i.e. timespan from 2008-1-1 to 2017-12-1 required `START_MONTH=[2008,1]` and `END_MONTH=[2017,12]` (<i>[year, month]</i>).
 
+ 
+#### Compute_disproportionality.ipynb
+  
+Compute  PRR and metrics applied in the thresholds.
+
+Set `START_MONTH` and `END_MONTH` to specify the timespan to be analyzed,  i.e. timespan from 2008-1-1 to 2017-12-1 required `START_MONTH=[2008,1]` and `END_MONTH=[2017,12]` (<i>[year, month]</i>).
+  
+The computation of the 4 methodologies tested in this project is allowed: <i>TEDAR</i> (variable length intervals), <i>PRR monthly</i> (1 month length intervals), <i>PRR quarterly</i> (3 months length intervals), <i>PRR yearly</i> (annual length intervals). 
+  
+TEDAR analysis requires the generation of `split_TEDAR.txt` as described in [TEDAR.ipynb](#tedaripynb).
+  
+  
+For each methodologies a files in `results` directory reports the metrics obtained (`DockerContainer/TEDAR/sciruby/results/TEDAR/result_TEDAR.txt`, `DockerContainer/TEDAR/sciruby/results/TEDAR/result_prr_monthly.txt`, `DockerContainer/TEDAR/sciruby/results/TEDAR/result_prr_quarterly.txt`, `DockerContainer/TEDAR/sciruby/results/TEDAR/result_prr_yearly.txt`).  
+ 
+An example of output file is showed in the following lines:
+```
+drug166	Product issues	[2017, 1]	[2017, 3]	13.567421790722761	5.702329665607122	32.28065454679049	51.50491267314168	5
+drug166	Product issues	[2017, 4]	[2017, 6]	0.0	0.0	NaN	0.19328512034182097	0
+drug166	Product issues	[2017, 7]	[2017, 9]	0.0	0.0	NaN	0.09696418479286524	0
+drug166	Product issues	[2017, 10]	[2017, 12]	0.0	0.0	NaN	0.4265674326620676	0
+drug289	Gastrointestinal disorders	[2017, 1]	[2017, 3]	0.13697869244542418	0.01964111254018487	0.9553003754583395	5.470147794547452	1
+drug289	Gastrointestinal disorders	[2017, 4]	[2017, 6]	0.8410845847520452	0.33146707846440043	2.1342188249428142	0.30023831513894006	4
+drug289	Gastrointestinal disorders	[2017, 7]	[2017, 9]	1.2641056422569028	0.6881028636443149	2.322273542537871	0.033651415267548335	9
+drug289	Gastrointestinal disorders	[2017, 10]	[2017, 12]	0.5401822700911351	0.20967439923221448	1.3916667270268261	1.8536783809609447	4  
+```
+  
+  
+  
   
 
 ## Citation
