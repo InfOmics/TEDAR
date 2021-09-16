@@ -90,6 +90,11 @@ The 3 <i>ipynb</i> files can be easly run in Jupyter Notebook via graphical inte
   2. `TEDAR.ipynb`
   3. `Compute_disproportionality.ipynb`
   
+  
+#### Init.ipynb
+  
+Upload input data (as specified in 	[Markdown - Link](#https://github.com/InfOmics/TEDAR#software-architecture) )
+  
 
 ## Citation
 
