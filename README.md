@@ -5,7 +5,7 @@ TEDAR is a pharmacovigilance signal detection method  based on variable-length t
 
 The main goal is to detect, for each specific drug-adr pair, a set of intervals having different lengths that are representative of the pair under consideration.
 A set of overlapping intervals are extracted for each drug-adr pair by applying a temporal data-mining approach. The notion of homogeneous interval is introduced. The covariance coefficient is engaged for detecting cutting points between the intervals in order to extract only homogeneous intervals.
-Then, a graph theory-based algorithm is applied for retrieving a final set of non-overlapping intervals. Finally, TEDAR uses the PRR statistics for evaluating the significance of the retrieved intervals. However, any other statistical method can be used for such a purpose.
+Then, a graph theory-based algorithm is applied for retrieving a final set of non-overlapping intervals. Finally, TEDAR uses the PRR statistics for evaluating the significance of the retrieved intervals. 
 
 ![Image](doc/method_illustration.png)
 
@@ -14,7 +14,7 @@ The above image represents the generation of a DAG of intervals for extracting n
 ## Software architecture
 
 TEDAR is released in a Docker container, that allows to isolate app from its environment, increasing replicability. All dependencies are automatically installed when the container is created.
-The TEDAR software is developed using Ruby inside jupyter notebook.  Reports are collected, stored and manipulated using Redis as database management system.
+The TEDAR software is developed using Ruby inside Jupyter Notebook.  Reports are collected, stored and manipulated using Redis as database management system.
 For the application of signal detection thresholds and the validation phase of drug-adrs detectect is used R.
 
 
@@ -26,13 +26,13 @@ ADRs are encoded according to the MedDRA (Medical Dictionary for Regulatory Acti
 
 Drug is defined as pharmaceutical product (combinations of active ingredients) according to the requirements of the ICH M5 standard adopted in RNF. We make no distinction between pharmaceutical products with the same combinations of active ingredients.
 
-Data extraction from RNF was carried out through the Vigisegn data warehouse. Thanks to the ease of access to the registers and the ability to download the entire database, it was possible to retrieve the information necessary for the TEDAR analysis: <b> <entry date, drug,  ADR></b>.
+Data extraction from RNF was carried out through the Vigisegn data warehouse. Thanks to the ease of access to the registers and the ability to download the entire database, it is possible to retrieve the information necessary for the TEDAR analysis: <b> <entry date, drug,  ADR></b>.
 
 We used the ADReCS and PROTECT datasets contained verified drug-adr relations for assessing the performances of TEDAR. The reference dataset used is obtained by merging these two datasets. Furthermore we selected only the drug-ard pairs for which a minimum number of reports equal to 5 is reported in RNF. The excluded pairs did not have enough support in the RNF dataset to be detected as signals.
 
 Input data and reference dataset provided in this repository contain drugs encoded as: <i>drug1, drug2, ... drug3042 </i>.
 
-Reference dataset `reference_dataset.txt` is contained in `DockerContainer/TEDAR`in directory.
+Reference dataset `reference_dataset.txt` is contained in `DockerContainer/TEDAR` directory.
   
 
 #### Input Data
@@ -74,6 +74,21 @@ The TEDAR version provided in this repository use `input_data_1y.txt` as default
 
 ## Usage
 
+Docker is required.
+Download and extract the repository, then go to `DockerContainer/TEDAR/` and run from terminal:
+```
+docker-compose up    
+```
+
+To execute the code inside the Jupyter Notebook go to http://localhost:8888/ via broswer.
+
+  
+Source code is proveded in `DockerContainer/TEDAR/sciruby/`. 
+The 3 <i>ipynb</> files can be easly run in Jupyter Notebook via graphical interface.  It is recommended to run the files in this order:
+
+  1. `Init.ipynb`
+  2. `TEDAR.ipynb`
+  3. `Compute_disproportionality.ipynb`
   
 
 ## Citation
