@@ -116,7 +116,7 @@ Set `START_MONTH` and `END_MONTH` to specify the timespan to be analyzed,  i.e. 
  
 #### Compute_disproportionality.ipynb
   
-Compute  PRR and metrics applied in the thresholds.
+Compute  PRR and metrics applied in thresholds (Confidence Interval and Chi-squared statistics).
 
 Set `START_MONTH` and `END_MONTH` to specify the timespan to be analyzed,  i.e. timespan from 2008-1-1 to 2017-12-1 required `START_MONTH=[2008,1]` and `END_MONTH=[2017,12]` (<i>[year, month]</i>).
   
@@ -124,15 +124,14 @@ The computation of the 4 methodologies tested in this project is allowed: <i>TED
   
 TEDAR analysis requires the generation of `split_TEDAR.txt` as described in [TEDAR.ipynb](#tedaripynb).
   
-  
 For each methodologies a files in `results` directory reports the metrics obtained (`DockerContainer/TEDAR/sciruby/results/TEDAR/result_TEDAR.txt`, `DockerContainer/TEDAR/sciruby/results/TEDAR/result_prr_monthly.txt`, `DockerContainer/TEDAR/sciruby/results/TEDAR/result_prr_quarterly.txt`, `DockerContainer/TEDAR/sciruby/results/TEDAR/result_prr_yearly.txt`).  
  
-Output file is a tab separated text file containing:
+Output file is a tab separated text file containing a line for each intervals of the analysed drg-adr pairs:
 ```
 Drug Adr Start_month End_month Prr LowerBoundConfidenceInterval UpperBoundConfidenceInterval Chi-squared NumberOfReportInIntervals
 ```
   
-An example of output file is showed in the following lines listing results for pairs <i>"drug166-Product"</i> issues <i>"drug289-Gastrointestinal disorders"</i> in timespan <i>[2017-1-1,2017-12-31]</i>:
+An example of output file is showed in the following lines listing results for pairs <i>"drug166-Product issues"</i> and <i>"drug289-Gastrointestinal disorders"</i> in timespan <i>[2017-1-1,2017-12-31]</i>:
 ```
 drug166	Product issues	[2017, 1]	[2017, 3]	13.567421790722761	5.702329665607122	32.28065454679049	51.50491267314168	5
 drug166	Product issues	[2017, 4]	[2017, 6]	0.0	0.0	NaN	0.19328512034182097	0
