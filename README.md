@@ -93,7 +93,24 @@ The 3 <i>ipynb</i> files can be easly run in Jupyter Notebook via graphical inte
   
 #### Init.ipynb
   
-Upload input data (as specified in 	[Input Data](#input-data) )
+File needed to upload input data in Redis database.
+Input data must be provided as specified in [Input Data](#input-data). Set `INPUTDATA` constant to specify the path.
+  
+#### TEDAR.ipynb
+  
+Core file of TEDAR methodology. 
+  
+Given input data already uploaded in Redis database, homogenous intervals are obtained and writen to file `DockerContainer/TEDAR/sciruby/results/TEDAR/split/split_TEDAR.txt`.
+
+ 
+`split_TEDAR.txt` is a tab separated text file that contains the homogenous intervals for each drug-adr pair in a line.
+Here an example listing 3 drug-adr pairs:  
+```
+drug166	Product issues	0,1,13
+drug429	Skin and subcutaneous tissue disorders	0,1,3,5,8,9,13
+drug202	Blood and lymphatic system disorders	0,7,10,13  
+```
+  
   
 
 ## Citation
