@@ -30,7 +30,10 @@ Data extraction from RNF was carried out through the Vigisegn data warehouse. Th
 
 We used the ADReCS and PROTECT datasets contained verified drug-adr relations for assessing the performances of TEDAR. The reference dataset used is obtained by merging these two datasets. Furthermore we selected only the drug-ard pairs for which a minimum number of reports equal to 5 is reported in RNF. The excluded pairs did not have enough support in the RNF dataset to be detected as signals.
 
-Input data and reference dataset provided in this repository are encoded.
+Input data and reference dataset provided in this repository contain drugs encoded as: <i>drug1, drug2, ... drug3042 </i>.
+
+Reference dataset `reference_dataset.txt` is contained in `DockerContainer/TEDAR`in directory.
+  
 
 #### Input Data
 
