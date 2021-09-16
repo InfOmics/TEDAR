@@ -111,6 +111,8 @@ drug429	Skin and subcutaneous tissue disorders	0,1,3,5,8,9,13
 drug202	Blood and lymphatic system disorders	0,7,10,13  
 ```
   
+Set `START_MONTH` and `END_MONTH` to specify the timespan to be analyzed,  i.e. timespan from 2008-1-1 to 2017-12-1 required `START_MONTH=[2008,1]` and `END_MONTH=[2017,12]` (<i>[year, month]</i>).
+
   
 
 ## Citation
